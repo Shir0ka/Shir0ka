@@ -1,0 +1,72 @@
+#Basic Conceptps Lessions 1-6 + Project
+
+#Lesson 1
+
+    Python is a: Programing language 
+
+    Let's start off by creating a short program that displays "Hello world!"
+    In Python, we use the print statement to output text.
+    
+    print("Hello World")
+    ---------------------------------------------------------------------------
+    The print statement can also be used to output multiple lines of text.
+    
+    print("Hello my name is Vincent")
+    print("Hello how are you today?")
+    print("Hello what are you doing right now?")
+    --------------------------------------------------------------------------- 
+    Rearrange the code to generate the following output:
+    
+    A
+    B
+    C
+    
+    print("A")
+    print("B")
+    print("C")
+    ---------------------------------------------------------------------------
+    Your First Program
+
+    Write a program to print "Python is fun".
+    Note that the sentence starts with a capital letter.
+    
+    print("Python is fun")
+    
+     ---------------------------------------------------------------------------
+     
+Lesson 2
+
+    Simple Operations
+
+    Python has the capability of carrying out calculations.
+    Enter a calculation directly into the print statement:
+    
+    print(2+2)
+    print(3 + 2 + 1)-
+    
+    #The spaces around the plus and minus signs here are optional (the code would work without them), but they make it easier to read.
+    
+    ---------------------------------------------------------------------------
+    
+    Simple Operations
+    What does this code output?
+    print(1 + 2 + 3)
+    
+    6
+    
+    ---------------------------------------------------------------------------
+    
+    Simple Operations
+
+    Python also carries out multiplication and division, using an asterisk * to indicate multiplication and a forward slash / to indicate division.
+    Use parentheses to determine which operations are performed first.
+    
+    print(2*(3+4))
+    print(8/4)
+    
+    # Using a single slash to divide numbers produces a decimal (or float, as it is called in programming). We'll have more about floats in the next lesson.
+    
+    
+    
+
+    
