@@ -7,10 +7,13 @@
     Let's start off by creating a short program that displays "Hello world!"
     In Python, we use the print statement to output text.
     
+    Answer:
     print("Hello World")
     ---------------------------------------------------------------------------
     The print statement can also be used to output multiple lines of text.
     
+    
+    Answer:
     print("Hello my name is Vincent")
     print("Hello how are you today?")
     print("Hello what are you doing right now?")
@@ -21,15 +24,19 @@
     B
     C
     
+    
+    Answer:
     print("A")
     print("B")
     print("C")
+    
     ---------------------------------------------------------------------------
     Your First Program
 
     Write a program to print "Python is fun".
     Note that the sentence starts with a capital letter.
     
+    Answer:
     print("Python is fun")
     
      ---------------------------------------------------------------------------
@@ -41,8 +48,10 @@ Lesson 2
     Python has the capability of carrying out calculations.
     Enter a calculation directly into the print statement:
     
+    Answer:
+    
     print(2+2)
-    print(3 + 2 + 1)-
+    print(3 + 2 + 1)
     
     #The spaces around the plus and minus signs here are optional (the code would work without them), but they make it easier to read.
     
@@ -52,7 +61,7 @@ Lesson 2
     What does this code output?
     print(1 + 2 + 3)
     
-    6
+    Answer:6
     
     ---------------------------------------------------------------------------
     
@@ -61,10 +70,62 @@ Lesson 2
     Python also carries out multiplication and division, using an asterisk * to indicate multiplication and a forward slash / to indicate division.
     Use parentheses to determine which operations are performed first.
     
+    
     print(2*(3+4))
     print(8/4)
     
     # Using a single slash to divide numbers produces a decimal (or float, as it is called in programming). We'll have more about floats in the next lesson.
+    
+    ---------------------------------------------------------------------------
+    
+   
+    Simple Operations
+
+
+    Today is a holiday at the children's camp, so all the children will be served ice cream.
+    There are 68 children in the group, and each child should get 2 scoops of ice cream.
+
+    Task
+    Write a program to calculate and output the total number of ice cream scoops we need.
+    
+    Answer:
+    
+    print(68*2)
+    # since every kid is getting 2 scoops and there are 68 children you have to multiple 68*2 and you get 136 
+    
+    ---------------------------------------------------------------------------
+    
+    Simple Operations
+    Which option is output by this code?
+
+    print((4 + 8) / 2)
+    
+    Answer: 6.0
+    
+    ---------------------------------------------------------------------------
+    
+ Lesson 3
+ 
+    
+    Floats
+
+    Floats are used in Python to represent numbers that aren't integers (whole numbers).
+    Some examples of numbers that are represented as floats are 0.5 and -7.8237591.
+    They can be created directly by entering a number with a decimal point, or by using operations such as division on integers.
+    
+    print(3/4)
+    print(0.45)
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     
     
