@@ -113,8 +113,112 @@ Lesson 2
     Some examples of numbers that are represented as floats are 0.5 and -7.8237591.
     They can be created directly by entering a number with a decimal point, or by using operations such as division on integers.
     
-    print(3/4)
-    print(0.45)
+    Answer:
+    print(3/4)=0.75
+    print(0.45)=0.45
+    
+    #Computers can't store floats perfectly accurately, in the same way that we can't write down the complete decimal 
+    expansion of 1/3 (0.3333333333333333...). Keep this in mind, because it often leads to infuriating bugs!
+    
+    ---------------------------------------------------------------------------
+    
+    Floats
+    Which of these will not be stored as a float?
+    
+    7.0
+    2/4
+    7
+    
+    Answer: 7
+    
+    ---------------------------------------------------------------------------
+   
+    Floats
+
+    As you saw previously, dividing any two integers produces a float.
+    A float is also produced by running an operation on two floats, or on a float and an integer.
+   
+    print(8/2)=4.0
+    print(6*7.0)=42.0
+    print(4+1.256)=5.256
+   
+    # A float can be added to an integer, because Python silently converts the integer to a float.
+    ---------------------------------------------------------------------------
+   
+    Floats
+    
+    Fill in the blank with the output of this code.
+    print(1 + 2 + 3 + 4.0 + 5)
+    
+    Answer:
+    15.0
+    
+    ---------------------------------------------------------------------------
+    
+Lesson 4
+
+    Exponentiation
+    
+    Besides addition, subtraction, multiplication, and division, Python also supports exponentiation, 
+    which is the raising of one number to the power of another. This operation is performed using two asterisks.
+    
+    Answer:
+    print(2**5)=32
+    bc 2*2*2*2*2=32
+    
+   # You can chain exponentiations together. In other words, you can rise a number to multiple powers. For example, 2**3**2.
+   
+   
+   ---------------------------------------------------------------------------
+   
+   Exponentiation
+   
+   Fill in the blank to output 5 raised to the 3rd power.
+   print(5  3)
+   
+   Answer
+   print(5**3)=125
+   5^3=125
+   
+   ---------------------------------------------------------------------------
+   
+   Exponentiation
+
+
+   You can also use floats in exponentiation.
+
+   For example, the following code will result in the square root of 9:
+    
+   Answer:
+   print(8**(4/2))=64.0
+   bc 8^2=64.0
+    
+   #Note that the result will be a float.
+   
+   ---------------------------------------------------------------------------
+   
+   Exponentiation
+   
+   What is the output of this code?
+   print( 8 ** (1/3) )
+   
+   2.0
+   3.0
+   2
+   
+   Answer: 2.0
+   
+   ---------------------------------------------------------------------------
+   
+Lesson 5
+
+   #
+   
+   
+   
+
+    
+    
     
     
     
