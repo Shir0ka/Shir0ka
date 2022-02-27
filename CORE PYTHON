@@ -212,7 +212,28 @@ Lesson 4
    
 Lesson 5
 
-   #
+   #Quotient
+
+
+   Floor division is done using two forward slashes and is used to determine the quotient of a division (the quantity produced by the division of two numbers).
+   
+   For example: print(20//6)=3
+   
+   The code above will output 3, because 6 goes into 20 three times.
+   
+   #If you do print(20/6)=3.333333
+   
+  ---------------------------------------------------------------------------
+  Quotient
+
+
+  Calculate and output the number of miles in 1000 kilometers.
+  
+  Hint: One mile is 1.6 kilometers, so find the quotient of 1000 and 1.6.
+  
+  Answer: print(1000//1.6)=624.0
+  
+  
    
    
    
