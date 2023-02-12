@@ -1,0 +1,216 @@
+#include <iostream>
+#include <vector>
+#include <ctime>
+#include <cstdlib>
+#include <string>
+
+using namespace std;
+
+// Function prototypes
+void shuffleDeck(vector<int> &deck);
+int drawCard(vector<int> &deck, int &deckIndex);
+void printHand(vector<int> hand, string playerName);
+bool hasBlackjack(vector<int> hand);
+bool isBust(vector<int> hand);
+void playDealerHand(vector<int> &deck, int &deckIndex, vector<int> &dealerHand);
+void playPlayerHand(vector<int> &deck, int &deckIndex, vector<int> &playerHand);
+int getHandValue(vector<int> hand);
+void printGameResult(vector<int> dealerHand, vector<int> playerHand);
+
+// Static variable to keep track of the number of games played
+static int gamesPlayed = 0;
+
+void playGame() {
+    // Initialize deck of cards
+    vector<int> deck(52);
+    for (int i = 0; i < 52; i++) {
+        deck[i] = i % 13 + 1;
+    }
+    
+    // Shuffle the deck
+    srand(time(0));
+    shuffleDeck(deck);
+    
+    // Initialize deck index and hands for dealer and player
+    int deckIndex = 0;
+    vector<int> dealerHand(2);
+    vector<int> playerHand(2);
+    
+    // Draw initial cards for dealer and player
+    dealerHand[0] = drawCard(deck, deckIndex);
+    dealerHand[1] = drawCard(deck, deckIndex);
+    playerHand[0] = drawCard(deck, deckIndex);
+    playerHand[1] = drawCard(deck, deckIndex);
+    
+    // Print initial hands
+    cout << "Dealer's Hand: [Hidden Card, " << dealerHand[1] << "]" << endl;
+    printHand(playerHand, "Player's");
+    
+    // Play player hand
+    playPlayerHand(deck, deckIndex, playerHand);
+    
+    // Play dealer hand
+    playDealerHand(deck, deckIndex, dealerHand);
+    
+    // Determine and print game result
+    printGameResult(dealerHand, playerHand);
+    
+    // Increment the number of games played
+    gamesPlayed++;
+}
+
+// Shuffle deck of cards using Fisher-Yates shuffle algorithm
+void shuffleDeck(vector<int> &deck) {
+    for (int i = 51; i > 0; i--) {
+        int j = rand() % (i + 1);
+        int temp = deck[i];
+        deck[i] = deck[j];
+        deck[j] = temp;
+    }
+}
+
+// Draw a card from the deck
+int drawCard(vector<int> &deck, int &deckIndex) {
+    return deck[deckIndex++];
+}
+
+// Print player's or dealer's hand
+void printHand(vector<int> hand, string playerName) {
+    cout << playerName << " Hand: [";
+    for (int i = 0; i < hand.size(); i++) {
+        cout << hand[i];
+        if (i < hand.size() - 1) {
+             cout << ", ";
+        }
+    }
+    cout << "]" << endl;
+}
+
+// Check if player has blackjack (21 points with only two cards)
+bool hasBlackjack(vector<int> hand) {
+    return hand.size() == 2 && getHandValue(hand) == 21;
+}
+
+// Check if player is bust (more than 21 points)
+bool isBust(vector<int> hand) {
+    return getHandValue(hand) > 21;
+}
+
+// Play dealer's hand
+void playDealerHand(vector<int> &deck, int &deckIndex, vector<int> &dealerHand) {
+    while (getHandValue(dealerHand) < 17) {
+        dealerHand.push_back(drawCard(deck, deckIndex));
+    }
+}
+
+// Play player's hand
+void playPlayerHand(vector<int> &deck, int &deckIndex, vector<int> &playerHand) {
+    char hitOrStand;
+    while (!isBust(playerHand) && !hasBlackjack(playerHand)) {
+        cout << "Do you want to hit or stand? (h/s): ";
+        cin >> hitOrStand;
+        if (hitOrStand == 'h') {
+            playerHand.push_back(drawCard(deck, deckIndex));
+            printHand(playerHand, "Player's");
+        } else {
+            break;
+        }
+    }
+}
+
+// Get the value of a hand
+int getHandValue(vector<int> hand) {
+    int handValue = 0;
+    for (int i = 0; i < hand.size(); i++) {
+        int cardValue = hand[i];
+        if (cardValue > 10) {
+            cardValue = 10;
+        }
+        handValue += cardValue;
+    }
+    return handValue;
+}
+
+// Print the result of the game
+void printGameResult(vector<int> dealerHand, vector<int> playerHand) {
+    cout << "Dealer's Hand: ";
+    printHand(dealerHand, "Dealer");
+    cout << "Player's Hand: ";
+    printHand(playerHand, "Player");
+    
+    int dealerHandValue = getHandValue(dealerHand);
+    int playerHandValue = getHandValue(playerHand);
+    
+    if (hasBlackjack(dealerHand)) {
+        cout << "Dealer has blackjack. Player loses." << endl;
+    } else if (hasBlackjack(playerHand)) {
+        cout << "Player has blackjack. Player wins." << endl;
+    } else if (isBust(dealerHand)) {
+        cout << "Dealer is bust. Player wins." << endl;
+    } else if (isBust(playerHand)) {
+        cout << "Player is bust. Player loses." << endl;
+    } else if (dealerHandValue > playerHandValue) {
+        cout << "Dealer wins." << endl;
+    } else if (dealerHandValue < playerHandValue) {
+        cout << "Player wins." << endl;
+    }
+     else {
+        cout << "It's a tie." << endl;
+    }
+}
+
+
+int main() {
+    //Ask for age
+    int age;
+    string ageinput;
+    cout << "Enter your age: ";
+    getline(cin, ageinput);
+
+    while (ageinput.empty() || !(ageinput.begin(), ageinput.end(), ::isdigit) || (age = stoi(ageinput)) < 18) {
+        cout << "Invalid input. Enter an integer greater than or equal to 18: ";
+        getline(cin, ageinput);
+    }
+
+    if (age < 18) {
+        cout << "You must be 18 years or older to play blackjack." << endl;
+        exit(1);
+    }
+
+    cout << "Welcome to the game of blackjack!" << endl;
+    
+    
+    
+    // Rules of blackjack
+    string input;
+    cout << "Do you know the rules of blackjack? (yes/no)" << endl;
+    cin >> input;
+    bool game_start = false;
+    if (input == "yes") {
+        game_start = true;
+    } else if(input == "no") {
+        cout << "Step 1: The game is played with a standard deck of 52 cards." << endl;
+        cout << "Step 2: The objective of the game is to beat the dealer by having a hand" << endl; 
+        cout << "        value of 21 or as close to 21 as possible without going over." << endl;
+        cout << "Step 3: Each player, including the dealer, receives two cards at the start of the" << endl;
+        cout << "        game. One of the dealer's cards is face up, while the other is face down. " << endl;
+        cout << "Step 4: The value of a player's hand is determined by adding up the point values of" << endl; 
+        cout << "        the individual cards. Face cards (Kings, Queens, and Jacks) are worth 10 points each," << endl;
+        cout << "        Aces can be worth either 1 or 11 points, and all other cards are worth their face value." << endl;
+        cout << "Step 5: Players take turns choosing to hit (take another card) or stand (keep their current hand)." << endl;
+        cout << "Step 6: If a player's hand value exceeds 21, they bust and lose the game." << endl;
+        cout << "Step 7: If the dealer busts, all remaining players win." << endl;
+        cout << "Step 8: If the dealer does not bust, then the player with the highest hand value that is less than" << endl;
+        cout << "        or equal to 21 wins." << endl;
+        cout << "Step 9: If a player and the dealer have the same hand value, the game is a push (tie) and the player" << endl; 
+        cout << "        does not win or lose." << endl;
+        cout << endl;
+  }
+    
+ 
+    
+    // Call to playGame function
+    playGame();
+    
+    return 0;
+}
