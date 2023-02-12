@@ -1,0 +1,59 @@
+#include <iostream>
+#include <cmath>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+
+bool checkBust(int handValue) {
+  return handValue > 21;
+}
+
+int getCardValue(int card) {
+  int cardValue = card % 13 + 1;
+  if (cardValue >= 10) {
+    return 10;
+  }
+  return cardValue;
+}
+
+int shuffleDeck() {
+  static int cardIndex = 0;
+  srand(time(NULL));
+  int randomCard = rand() % (52 - cardIndex) + cardIndex;
+  cardIndex++;
+  return randomCard;
+}
+
+int main() {
+  int playerHandValue = 0;
+  playerHandValue += getCardValue(shuffleDeck());
+  playerHandValue += getCardValue(shuffleDeck());
+
+  cout << "Player hand value: " << playerHandValue << endl;
+
+  if (checkBust(playerHandValue)) {
+    cout << "Player busts." << endl;
+    return 0;
+  }
+
+  int dealerHandValue = 0;
+  dealerHandValue += getCardValue(shuffleDeck());
+  dealerHandValue += getCardValue(shuffleDeck());
+
+  cout << "Dealer hand value: " << dealerHandValue << endl;
+
+  if (checkBust(dealerHandValue)) {
+    cout << "Dealer busts." << endl;
+    return 0;
+  }
+
+  if (playerHandValue > dealerHandValue) {
+    cout << "Player wins." << endl;
+  } else if (dealerHandValue > playerHandValue) {
+    cout << "Dealer wins." << endl;
+  } else {
+    cout << "It's a tie." << endl;
+  }
+
+  return 0;
+}
