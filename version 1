@@ -1,0 +1,52 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+int drawCard() {
+    return rand() % 10 + 1;
+}
+
+int main() {
+    srand(time(0));
+    int player = 0, dealer = 0;
+    char hitStay;
+    
+    cout << "Welcome to Blackjack!" << endl;
+    
+    player += drawCard() + drawCard();
+    cout << "Your current hand value is " << player << endl;
+    
+    dealer += drawCard();
+    cout << "The dealer's top card is " << dealer << endl;
+    
+    while (player < 21) {
+        cout << "Would you like to hit or stay (h/s)? ";        
+        cin >> hitStay;
+        if (hitStay == 'h') {
+            player += drawCard();
+            cout << "Your current hand value is " << player << endl;
+        } else {
+            break;
+        }
+    }
+    
+    while (dealer < 17) {
+        dealer += drawCard();
+    }
+    
+    cout << "Dealer's final hand value is " << dealer << endl;
+    
+    if (player > 21) {
+        cout << "You busted! You lose." << endl;
+    } else if (dealer > 21) {
+        cout << "Dealer busted! You win." << endl;
+    } else if (player > dealer) {
+        cout << "You win!" << endl;
+    } else {
+        cout << "You lose." << endl;
+    }
+    
+    return 0;
+}
